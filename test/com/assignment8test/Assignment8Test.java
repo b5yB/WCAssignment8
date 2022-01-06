@@ -1,4 +1,4 @@
-package com.assignment8test;
+	package com.assignment8test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +43,9 @@ public class Assignment8Test {
 		Assignment8 a8 = new Assignment8();
 		
 		ExecutorService eServIO = Executors.newCachedThreadPool();
-		ExecutorService eServCPU = Executors.newFixedThreadPool(5);
+		
+		//Thought I needed fixedThreadPool as a crutch for my old machine... but cachedThreadPool works fine!  
+		//ExecutorService eServCPU = Executors.newFixedThreadPool(5);
 
 		List<CompletableFuture<Void>> allBatch = new ArrayList<>();
 		List<Integer> allNum = new ArrayList<>();
@@ -51,8 +53,8 @@ public class Assignment8Test {
 		
 		for(int i=0; i<1000; i++) {
 			CompletableFuture<Void> batch = CompletableFuture
-															 .supplyAsync(() -> a8.getNumbers(), eServCPU)
-															 .thenAcceptAsync(numList -> allNum.addAll(numList), eServIO);
+															 .supplyAsync(() -> a8.getNumbers(), eServIO)
+															 .thenAcceptAsync(numList -> allNum.addAll(numList));
 				
 			
 			
