@@ -67,13 +67,13 @@ public class Assignment8Test {
 					   
 				   }
 			
-		System.out.println("Total elements: " + allNum.size());
+		//System.out.println("Total elements: " + allNum.size());
 		
 		Map<Integer, Long> result = allNum.stream()
 			  .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-		System.out.println("Unique elements: " + result.size());
-		System.out.println("Total occurences: " + result.toString().replace("{", "").replace("}", ""));
+		//System.out.println("Unique elements: " + result.size());
+		System.out.println(result.toString().replace("{", "").replace("}", ""));
 		
 	}
 
